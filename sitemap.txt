@@ -1,3 +1,6 @@
-http://example.com/2024/10/08/builtins/
+http://example.com/link/index.html
+http://example.com/categories/index.html
+http://example.com/tags/index.html
+http://example.com/2024/10/09/builtins/
 http://example.com/2024/10/09/hello-world/
 http://example.com/
