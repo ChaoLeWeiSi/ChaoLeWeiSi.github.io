@@ -1,6 +1,8 @@
+http://example.com/2024/10/09/builtins/
 http://example.com/link/index.html
 http://example.com/categories/index.html
 http://example.com/tags/index.html
-http://example.com/2024/10/09/builtins/
 http://example.com/2024/10/09/hello-world/
 http://example.com/
+http://example.com/tags/python%E5%86%85%E7%BD%AE%E5%BA%93/
+http://example.com/categories/python/
