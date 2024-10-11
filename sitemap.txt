@@ -1,9 +1,9 @@
 https://chaoleweisi.github.io/2024/10/09/hello-world/
+https://chaoleweisi.github.io/2024/10/09/builtins/
 https://chaoleweisi.github.io/2024/10/10/chapter_graph/graph/
 https://chaoleweisi.github.io/2024/10/10/chapter_graph/summary/
 https://chaoleweisi.github.io/2024/10/10/chapter_graph/graph_traversal/
 https://chaoleweisi.github.io/2024/10/10/chapter_graph/graph_operations/
-https://chaoleweisi.github.io/2024/10/09/builtins/
 https://chaoleweisi.github.io/categories/index.html
 https://chaoleweisi.github.io/link/index.html
 https://chaoleweisi.github.io/tags/index.html
