@@ -1,0 +1,246 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>力扣刷题日记 | Zxy's Blog</title><meta name="author" content="侏小一"><meta name="copyright" content="侏小一"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="2024-10-24 92.反转链表|| 标签 链表   给你单链表的头指针head和两个整数left和right，其中left&lt;&#x3D;right。请你反转从位置 left 到位置 right 的链表节点，返回 反转后的链表 。  输入：head &#x3D; [1,2,3,4,5], left &#x3D; 2, right &#x3D; 4 输出：[1,4,3,2,5]  输入：head &#x3D; [5], left &#x3D; 1,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="力扣刷题日记">
+<meta property="og:url" content="https://chaoleweisi.github.io/posts/5926891a/index.html">
+<meta property="og:site_name" content="Zxy&#39;s Blog">
+<meta property="og:description" content="2024-10-24 92.反转链表|| 标签 链表   给你单链表的头指针head和两个整数left和right，其中left&lt;&#x3D;right。请你反转从位置 left 到位置 right 的链表节点，返回 反转后的链表 。  输入：head &#x3D; [1,2,3,4,5], left &#x3D; 2, right &#x3D; 4 输出：[1,4,3,2,5]  输入：head &#x3D; [5], left &#x3D; 1,">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://chaoleweisi.github.io/img/jinx.png">
+<meta property="article:published_time" content="2024-10-24T11:22:14.000Z">
+<meta property="article:modified_time" content="2024-10-24T12:19:51.855Z">
+<meta property="article:author" content="侏小一">
+<meta property="article:tag" content="力扣">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chaoleweisi.github.io/img/jinx.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://chaoleweisi.github.io/posts/5926891a/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        if (name && globalFn[key][name]) return
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '力扣刷题日记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-10-24 20:19:51'
+}</script><link rel="stylesheet" href="/css/background.css"><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Zxy's Blog" type="application/atom+xml">
+</head><body><div id="web_bg" style="background-color: #efefef;"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/loading.gif" data-original="/img/jinx.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">74</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">34</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">17</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/jinx2.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Zxy's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">力扣刷题日记</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">力扣刷题日记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-10-24T11:22:14.000Z" title="发表于 2024-10-24 19:22:14">2024-10-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-10-24T12:19:51.855Z" title="更新于 2024-10-24 20:19:51">2024-10-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%8A%9B%E6%89%A3/">力扣</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="2024-10-24">2024-10-24</h1>
+<h2 id="a-href-https-leetcode-cn-problems-reverse-linked-list-ii-description-92-fan-zhuan-lian-biao-a"><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/reverse-linked-list-ii/description/">92.反转链表||</a></h2>
+<h3 id="biao-qian">标签</h3>
+<pre><code>链表 
+</code></pre>
+<div class="note flat"><p>给你单链表的头指针<code>head</code>和两个整数<code>left</code>和<code>right</code>，其中<code>left</code>&lt;=<code>right</code>。请你反转从位置 left 到位置 right 的链表节点，返回 反转后的链表 。</p>
+</div>
+<pre><code>输入：head = [1,2,3,4,5], left = 2, right = 4
+输出：[1,4,3,2,5]
+
+输入：head = [5], left = 1, right = 1
+输出：[5]
+</code></pre>
+<h3 id="fang-fa">方法</h3>
+<p>局部反转链表，思路为在一次遍历中将当前节点的下一个放在局部链表的最前面，需要将pre和cur先遍历到left-1和left，借助最开始局部链表首节点cur的前一个节点pre，同时注意链表换位置的操作在代码中上一行的尾部是这一行的头部。<br>
+<img src="/img/loading.gif" data-original="/posts/5926891a/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8%7C%7C.png" alt="反转链表||"><br>
+需要三个指针变量，<code>pre</code>，<code>cur</code>，<code>tmp</code><br>
+<code>pre</code>：永远指向待反转区域的第一个节点<code>left</code>的前一个节点，<code>pre</code>不会改变<br>
+<code>cur</code>：指向待反转区域的第一个节点<code>left</code><br>
+<code>tmp</code>：永远指向<code>cur</code>的下一个节点，循环过程中<code>cur</code>变化后<code>tmp</code>会变化<br>
+步骤如下：</p>
+<ul>
+<li>记录<code>cur</code>的下一个节点为<code>tmp</code></li>
+<li>将<code>cur</code>的下一个节点指向<code>tmp</code>的下一个节点</li>
+<li>将<code>tmp</code>的下一个节点指向<code>pre</code>的下一个节点</li>
+<li>将<code>pre</code>的下一个节点指向<code>tmp</code></li>
+</ul>
+<p>这样就将当前节点的下一个节点放在待排序区域<code>[left,right]</code>的首位置<code>left</code>了<br>
+图中的例子应为<code>725436</code>-&gt;<code>752436</code>-&gt;<code>745236</code>-&gt;<code>734526</code></p>
+<h3 id="dai-ma">代码</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">reverseBetween</span>(<span class="params">self, head: <span class="type">Optional</span>[ListNode], left: <span class="built_in">int</span>, right: <span class="built_in">int</span></span>) -&gt; <span class="type">Optional</span>[ListNode]:</span><br><span class="line">        dummy = ListNode(-<span class="number">1</span>)</span><br><span class="line">        dummy.<span class="built_in">next</span>=head</span><br><span class="line">        pre = dummy</span><br><span class="line">        <span class="comment"># left-1表示当循环结束时cur为需要反转的第一个节点left，pre为上一个节点</span></span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(left-<span class="number">1</span>):</span><br><span class="line">            pre = pre.<span class="built_in">next</span></span><br><span class="line">        cur = pre.<span class="built_in">next</span></span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(left,right):</span><br><span class="line">            <span class="comment"># 是在需要反转的链表内进行将cur.next插在最前面，需要用到pre.next，12345变成13245，再变成14325</span></span><br><span class="line">            tmp = cur.<span class="built_in">next</span></span><br><span class="line">            cur.<span class="built_in">next</span> = tmp.<span class="built_in">next</span></span><br><span class="line">            tmp.<span class="built_in">next</span> = pre.<span class="built_in">next</span></span><br><span class="line">            pre.<span class="built_in">next</span> = tmp</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> dummy.<span class="built_in">next</span></span><br></pre></td></tr></table></figure>
+<h2 id="a-href-https-leetcode-cn-problems-find-the-winner-of-an-array-game-description-1535-zhao-chu-shu-zu-you-xi-de-ying-jia-a-tong-a-href-https-leetcode-cn-problems-find-the-first-player-to-win-k-games-in-a-row-3175-zhao-dao-lian-xu-ying-k-chang-bi-sai-de-di-yi-wei-wan-jia-a"><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-the-winner-of-an-array-game/description/">1535.找出数组游戏的赢家</a>同<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-the-first-player-to-win-k-games-in-a-row/">3175. 找到连续赢 K 场比赛的第一位玩家</a></h2>
+<h3 id="biao-qian-1">标签</h3>
+<pre><code>数组 模拟
+</code></pre>
+<div class="note flat"><p>给你一个由 <code>不同</code> 整数组成的整数数组 <code>arr</code> 和一个整数 <code>k</code> 。</p>
+<p>每回合游戏都在数组的前两个元素（即 <code>arr[0]</code> 和 <code>arr[1]</code> ）之间进行。比较 <code>arr[0]</code> 与 <code>arr[1]</code> 的大小，较大的整数将会取得这一回合的胜利并保留在位置 <code>0</code> ，较小的整数移至数组的末尾。当一个整数赢得 <code>k</code> 个连续回合时，游戏结束，该整数就是比赛的 <code>赢家</code> 。</p>
+<p>返回赢得比赛的整数。</p>
+</div>
+<pre><code>输入：arr = [2,1,3,5,4,6,7], k = 2
+输出：5
+解释：一起看一下本场游戏每回合的情况：
+</code></pre>
+<p><img src="/img/loading.gif" data-original="/posts/5926891a/%E6%89%BE%E5%87%BA%E6%95%B0%E7%BB%84%E6%B8%B8%E6%88%8F%E7%9A%84%E8%B5%A2%E5%AE%B6.png" alt="过程"></p>
+<pre><code>因此将进行 4 回合比赛，其中 5 是赢家，因为它连胜 2 回合。
+
+输入：arr = [3,2,1], k = 10
+输出：3
+解释：3 将会在前 10 个回合中连续获胜。
+
+输入：arr = [1,9,8,2,3,7,6,4,5], k = 7
+输出：9
+</code></pre>
+<h3 id="si-lu">思路</h3>
+<p>由于较小的元素会移至数组的末尾，在重新遇到被移至数组末尾的元素之前，<code>arr</code> 的每个元素都会被访问到。</p>
+<p>考察游戏执行的流程，本质上是在从左到右遍历 <code>arr</code>，求数组最大值（打擂台）。我们要找首个连续 <code>k </code>回合都是最大值的数。</p>
+<p>如果遍历完 <code>arr </code>也没找到这样的数，那么答案就是 <code>arr</code> 的最大值 <code>mx</code>，因为此时比 <code>mx</code> 小的数都会移到 <code>mx</code> 的右边，所以后面比大小都是 <code>mx</code> 胜利。</p>
+<h3 id="ju-ti-suan-fa">具体算法</h3>
+<ol>
+<li>初始化 <code>mx=arr[0]</code>, <code>win=0</code>，从 <code>arr[1]</code> 开始遍历数组。其中 <code>win</code> 用来统计 <code>mx</code> 连续多少个回合是最大值（获胜）。</li>
+<li>如果 <code>arr[i]&gt;mx</code>，更新 <code>mx=arr[i]</code> 以及 <code>win=0</code>。</li>
+<li>把 <code>win</code> 加一，如果 <code>win=k</code> 就退出循环。</li>
+<li>遍历结束（或者中途退出循环），返回 <code>mx</code>。</li>
+</ol>
+<h3 id="dai-ma-1">代码</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">getWinner</span>(<span class="params">self, arr: <span class="type">List</span>[<span class="built_in">int</span>], k: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    mx = arr[<span class="number">0</span>]</span><br><span class="line">    win = -<span class="number">1</span>  <span class="comment"># 对于 arr[0] 来说，需要连续 k+1 个回合都是最大值</span></span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> arr:</span><br><span class="line">        <span class="keyword">if</span> x &gt; mx:  <span class="comment"># 新的最大值</span></span><br><span class="line">            mx = x</span><br><span class="line">            win = <span class="number">0</span></span><br><span class="line">        win += <span class="number">1</span>  <span class="comment"># 获胜回合 +1</span></span><br><span class="line">        <span class="keyword">if</span> win == k:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">return</span> mx</span><br></pre></td></tr></table></figure>
+<h1 id="2024-10-25">2024-10-25</h1>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://chaoleweisi.github.io">侏小一</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://chaoleweisi.github.io/posts/5926891a/">https://chaoleweisi.github.io/posts/5926891a/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://chaoleweisi.github.io" target="_blank">Zxy's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%8A%9B%E6%89%A3/">力扣</a></div><div class="post-share"><div class="social-share" data-image="/img/jinx.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="next-post pull-full" href="/posts/858d693d/" title="参考资料"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">参考资料</div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a href="/posts/d345e655/" title="数据结构与算法总结"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-11</div><div class="title">数据结构与算法总结</div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info is-center"><div class="avatar-img"><img src="/img/loading.gif" data-original="/img/jinx.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">侏小一</div><div class="author-info-description">侏小一的博客，主要记录计算机相关知识，包括python、数据结构与算法和深度学习相关的内容</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">74</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">34</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">17</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ChaoLeWeiSi"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/ChaoLeWeiSi/" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=1139654149&amp;website=www.oicqzone.com" target="_blank" title="QQ"><i class="fab fa-qq"></i></a><a class="social-icon" href="mailto:1139654149@qq.com" target="_blank" title="Email"><i class="fas fa-envelope-open-text"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">侏小一的博客</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#2024-10-24"><span class="toc-number">1.</span> <span class="toc-text">2024-10-24</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#a-href-https-leetcode-cn-problems-reverse-linked-list-ii-description-92-fan-zhuan-lian-biao-a"><span class="toc-number">1.1.</span> <span class="toc-text">92.反转链表||</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#biao-qian"><span class="toc-number">1.1.1.</span> <span class="toc-text">标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fang-fa"><span class="toc-number">1.1.2.</span> <span class="toc-text">方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dai-ma"><span class="toc-number">1.1.3.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#a-href-https-leetcode-cn-problems-find-the-winner-of-an-array-game-description-1535-zhao-chu-shu-zu-you-xi-de-ying-jia-a-tong-a-href-https-leetcode-cn-problems-find-the-first-player-to-win-k-games-in-a-row-3175-zhao-dao-lian-xu-ying-k-chang-bi-sai-de-di-yi-wei-wan-jia-a"><span class="toc-number">1.2.</span> <span class="toc-text">1535.找出数组游戏的赢家同3175. 找到连续赢 K 场比赛的第一位玩家</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#biao-qian-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#si-lu"><span class="toc-number">1.2.2.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ju-ti-suan-fa"><span class="toc-number">1.2.3.</span> <span class="toc-text">具体算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dai-ma-1"><span class="toc-number">1.2.4.</span> <span class="toc-text">代码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2024-10-25"><span class="toc-number">2.</span> <span class="toc-text">2024-10-25</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/5926891a/" title="力扣刷题日记">力扣刷题日记</a><time datetime="2024-10-24T11:22:14.000Z" title="发表于 2024-10-24 19:22:14">2024-10-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/858d693d/" title="参考资料">参考资料</a><time datetime="2024-10-22T02:03:14.000Z" title="发表于 2024-10-22 10:03:14">2024-10-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/4cdfd03c/" title="贪心——小结">贪心——小结</a><time datetime="2024-10-22T02:01:14.000Z" title="发表于 2024-10-22 10:01:14">2024-10-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/c010eca3/" title="最大切分乘积问题">最大切分乘积问题</a><time datetime="2024-10-22T01:49:14.000Z" title="发表于 2024-10-22 09:49:14">2024-10-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/c9f96402/" title="最大容量问题">最大容量问题</a><time datetime="2024-10-22T01:45:14.000Z" title="发表于 2024-10-22 09:45:14">2024-10-22</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/jinx2.png);"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By 侏小一</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(async () => {
+  const showKatex = () => {
+    document.querySelectorAll('#article-container .katex').forEach(el => el.classList.add('katex-show'))
+  }
+
+  if (!window.katex_js_css) {
+    window.katex_js_css = true
+    await btf.getCSS('https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css')
+    if (true) {
+      await btf.getScript('https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js')
+    }
+  }
+
+  showKatex()
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div>
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>(r=>{r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,o=r.imageLazyLoadSetting.preloadRatio||1,d=i();function i(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=i());for(var e,n=0;n<d.length;n++)0<=(e=(e=d[n]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*o||document.documentElement.clientHeight*o)&&(()=>{var t,e,a,o,i=d[n];e=function(){d=d.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,o=t.getAttribute("data-original"),a.onload=function(){t.src=o,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=o},t.src!==o&&(a.src=o)))})()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)})(this);</script></body></html>
